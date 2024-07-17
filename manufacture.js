@@ -2,21 +2,23 @@
 // Gifts are strings of text and materials are characters. Your task is to write a function that, given a list of gifts and the available materials, returns a list of the gifts that can be made.
 // A gift can be made if we have all the necessary materials to make it.
 
-function manufacture(gifts, materials) {
-  return [];
+function manufacture(giftsList, materials) {
+  return giftsList.filter((gift) =>
+    gift.split("").every((matt) => materials.includes(matt))
+  );
 }
 
-const gifts = ["tren", "oso", "pelota"];
+const giftsList = ["tren", "oso", "pelota"];
 const materials = "tronesa";
 
-manufacture(gifts, materials); // ["tren", "oso"]
+console.log(manufacture(giftsList, materials)); // ["tren", "oso"]
 
-const gifts = ["juego", "puzzle"];
-const materials = "jlepuz";
+const giftsList1 = ["juego", "puzzle"];
+const materials1 = "jlepuz";
 
-manufacture(gifts, materials); // ["puzzle"]
+console.log(manufacture(giftsList1, materials1)); // ["puzzle"]
 
-const gifts = ["libro", "ps5"];
-const materials = "psli";
+const giftsList2 = ["libro", "ps5"];
+const materials2 = "psli";
 
-manufacture(gifts, materials); // []
+console.log(manufacture(giftsList, materials2)); // []
